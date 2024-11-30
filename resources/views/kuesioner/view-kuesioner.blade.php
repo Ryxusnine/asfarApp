@@ -11,7 +11,7 @@
                   <p class="card-text">
                     Some quick example text to build on the card title and make up the bulk of the card's content.
                   </p>
-                  <a href="javascript:void(0)" class="btn btn-outline-primary">Jawab Kuesioner</a>
+                  <a href="{{route('kuesioner.create')}}" class="btn btn-outline-primary">Jawab Kuesioner</a>
                 </div>
               </div>
             </div>
@@ -23,7 +23,7 @@
                       <p class="card-text">
                         Some quick example text to build on the card title and make up the bulk of the card's content.
                       </p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">Jawab Kuesioner</a>
+                      <a href="{{route('kuesioner.create')}}" class="btn btn-outline-primary">Jawab Kuesioner</a>
                     </div>
                   </div>
             </div>
@@ -35,7 +35,7 @@
                       <p class="card-text">
                         Some quick example text to build on the card title and make up the bulk of the card's content.
                       </p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">Jawab Kuesioner</a>
+                      <a href="{{route('kuesioner.create')}}" class="btn btn-outline-primary">Jawab Kuesioner</a>
                     </div>
                   </div>
             </div>

@@ -1,7 +1,7 @@
 @extends('layout.navbar')
 @section('content')
     <div class="container p-5">
-        <a href="#" class="btn-primary rounded p-3">Tambah Kuesioner</a>
+        <a href="{{route('add-kuesioner.create')}}" class="btn-primary rounded p-3">Tambah Kuesioner</a>
         <div class="card mt-5">
             <h5 class="card-header">Daftar Kuesioner</h5>
             <div class="table-responsive text-nowrap">

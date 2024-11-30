@@ -1,7 +1,7 @@
 @extends('layout.navbar')
 @section('content')
     <div class="container p-5 bg-white m-5 mx-auto rounded">
-        <label for="firstName" class="form-label">First Name</label>
+        <label for="firstName" class="form-label">Username</label>
         <input class="form-control mb-3" type="text" id="firstName" name="firstName" value="John">
         <label for="email" class="form-label">Email</label>
         <input class="form-control" type="text" id="email" name="email" value="John@example.com">

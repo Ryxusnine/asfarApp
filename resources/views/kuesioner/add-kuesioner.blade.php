@@ -10,6 +10,9 @@
 
         <label class="form-label mt-3">Kuesioner 1</label>
         <input type="text" class="form-control" placeholder="Masukkan Pertanyaan" aria-describedby="defaultFormControlHelp">
+        
+        <a class="form-label mt-3" href="#">Tambahkan Gambar?</a>
+        <input class="form-control" type="file" id="formFile">
 
         <label class="form-label mt-3">Kuesioner 2</label>
         <input type="text" class="form-control" placeholder="Masukkan Pertanyaan" aria-describedby="defaultFormControlHelp">

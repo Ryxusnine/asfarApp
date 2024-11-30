@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html
@@ -65,8 +64,8 @@
                 <img src="{{asset('assets/img/logo.png')}}" height="65px" alt="logo">
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2">Selamat Datang 👋</h4>
-              <p class="mb-4">Please sign-in to your account and start the adventure</p>
+              <h4 class="mb-2">Buat Akun Anda 👋</h4>
+              <p class="mb-4">Please create your account</p>
               @session('alert.gagal')
                       <div class="alert alert-danger alert-dismissible" role="alert">
                         Username atau Password Salah!
@@ -82,6 +81,16 @@
                   class="form-control"
                   name="username"
                   placeholder="Enter your username"
+                  autofocus
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Email</label>
+                  <input
+                  type="text"
+                  class="form-control"
+                  name="email"
+                  placeholder="Enter your Email"
                   autofocus
                   />
                 </div>
@@ -105,9 +114,9 @@
               </form>
 
               <p class="text-center">
-                <span>Belum Punya Akun?</span>
-                <a href="{{route('buat-akun.index')}}">
-                  <span class="text-primary">Buat Akun</span>
+                <span>Sudah Punya Akun?</span>
+                <a href="{{route('login.index')}}">
+                  <span class="text-primary">Kembali</span>
                 </a>
               </p>
             </div>

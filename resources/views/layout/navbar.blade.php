@@ -83,14 +83,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbar-ex-2">
           <div class="navbar-nav mx-auto" style="font-size: 18px">
-            <a class="nav-item nav-link mx-3 px-3">Dashboard</a>
-            <a class="nav-item nav-link mx-3 px-3">Kelola Kuesioner</a>
-            <a class="nav-item nav-link mx-3 px-3">Kuesioner</a>
-            <a class="nav-item nav-link mx-3 px-3">Tentang Kami</a>
-            <a class="nav-item nav-link mx-3 px-3">Profile</a>
-            {{-- <a class="nav-item nav-link mx-3 px-3 @if(Route::is('dashboard.index')) bg-success rounded-pill text-white @endif" href="{{route('dashboard.index')}}">Halaman Utama</a>
-            <a class="nav-item nav-link mx-3 px-3 @if(Route::is('ulasan.index')) bg-success rounded-pill text-white @endif" href="{{route('ulasan.index')}}">Ulasan</a>
-            <a class="nav-item nav-link mx-3 px-3 @if(Route::is('about.index')) bg-success rounded-pill text-white @endif" href="{{route('about.index')}}">Tentang Kami</a> --}}
+            <a class="nav-item nav-link mx-3 px-3 @if(Route::is('dashboard.index')) bg-success rounded-pill text-white @endif" href="{{route('dashboard.index')}}">Dashboard</a>
+            <a class="nav-item nav-link mx-3 px-3 @if(Route::is('kelola-kuesioner.index')) bg-success rounded-pill text-white @endif" href="{{route('kelola-kuesioner.index')}}">Kelola Kuesioner</a>
+            <a class="nav-item nav-link mx-3 px-3 @if(Route::is('kuesioner.index')) bg-success rounded-pill text-white @endif" href="{{route('kuesioner.index')}}">Kuesioner</a>
+            <a class="nav-item nav-link mx-3 px-3 @if(Route::is('dashboard.about')) bg-success rounded-pill text-white @endif" href="{{route('dashboard.about')}}">Tentang Kami</a>
+            <a class="nav-item nav-link mx-3 px-3 @if(Route::is('profile.index')) bg-success rounded-pill text-white @endif" href="{{route('profile.index')}}">Profile</a>
           </div>
         </div>
         
