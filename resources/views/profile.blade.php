@@ -15,4 +15,8 @@
         <input class="form-control" type="text" id="confirm" name="confirm" value="John@example.com">
         <button class="mt-3 btn btn-primary">Update</button>
     </div>
-@endsection
+    <div class="container p-5 bg-white rounded mb-5">
+        <p>Tekan logout untuk keluar dari website ini.</p>
+        <button class="btn btn-danger">LOGOUT</button>
+    </div>
+    @endsection
