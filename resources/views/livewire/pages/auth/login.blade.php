@@ -68,13 +68,13 @@ new #[Layout('layouts.auth')] #[Title('Login')] class extends Component {
                             <label
                                 class="form-label"
                                 for="email"
-                            >Email</label>
+                            >Surel</label>
                             <input
                                 class="form-control @error('form.email') is-invalid @enderror"
                                 id="email"
                                 name="email"
                                 type="email"
-                                placeholder="Enter your email"
+                                placeholder="masukkan surel..."
                                 autofocus
                                 wire:model="form.email"
                                 required
@@ -88,7 +88,7 @@ new #[Layout('layouts.auth')] #[Title('Login')] class extends Component {
                             <label
                                 class="form-label"
                                 for="password"
-                            >Password</label>
+                            >Kata Sandi</label>
                             <div class="input-group input-group-merge">
                                 <input
                                     class="form-control @error('form.password') is-invalid @enderror"
@@ -99,7 +99,7 @@ new #[Layout('layouts.auth')] #[Title('Login')] class extends Component {
                                     wire:model="form.password"
                                     required
                                     autocomplete="current-password"
-                                    placeholder="*******"
+                                    placeholder="masukkan kata sandi..."
                                 />
                                 <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 @error('form.password')
@@ -120,7 +120,7 @@ new #[Layout('layouts.auth')] #[Title('Login')] class extends Component {
                                     <label
                                         class="form-check-label"
                                         for="remember-me"
-                                    > Remember Me </label>
+                                    > Ingat akun? </label>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +128,7 @@ new #[Layout('layouts.auth')] #[Title('Login')] class extends Component {
                             <button
                                 class="btn btn-primary d-grid w-100"
                                 type="submit"
-                            >Login</button>
+                            >Masuk</button>
                         </div>
                     </form>
 
