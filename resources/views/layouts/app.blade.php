@@ -1,36 +1,95 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+@extends('layouts.base')
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+@section('title', $title ?? '')
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+@push('styles.page')
+    <link
+        href="{{ asset('templates/sneat/vendor/css/pages/page-auth.css') }}"
+        rel="stylesheet"
+    />
+@endpush
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            <livewire:layout.navigation />
+@section('content')
+    <nav class="navbar navbar-example navbar-expand-lg navbar-light bg-white p-3 shadow-sm">
+        <div class="container-fluid">
+            <div class="app-brand demo">
+                <a
+                    class="app-brand-link"
+                    href="index.html"
+                >
+                    <img
+                        src="{{ asset('UIM/logo.png') }}"
+                        alt="logo"
+                        height="65px"
+                    >
+                </a>
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+                <a
+                    class="layout-menu-toggle menu-link text-large d-block d-xl-none ms-auto"
+                    href="javascript:void(0);"
+                >
+                    <i class="bx bx-chevron-left bx-sm align-middle"></i>
+                </a>
+            </div>
+            <button
+                class="navbar-toggler"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbar-ex-2"
+                type="button"
+                aria-controls="navbar-ex-2"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+                class="navbar-collapse collapse"
+                id="navbar-ex-2"
+            >
+                <div
+                    class="navbar-nav mx-auto"
+                    style="font-size: 18px"
+                >
+                    <a
+                        class="nav-item nav-link @if (Route::is('dashboard')) bg-success rounded-pill text-white @endif mx-3 px-3"
+                        href="{{ route('dashboard') }}"
+                    >
+                        Dashboard
+                    </a>
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+                    <a
+                        class="nav-item nav-link @if (Route::is('profile')) bg-success rounded-pill text-white @endif mx-3 px-3"
+                        href="{{ route('profile') }}"
+                    >
+                        Profile
+                    </a>
+                </div>
+            </div>
         </div>
-    </body>
-</html>
+    </nav>
+
+    <div class="layout-wrapper layout-content-navbar layout-without-menu">
+        <div class="layout-container">
+            <!-- Layout container -->
+            <div class="layout-page">
+                <!-- Content wrapper -->
+                <div class="content">
+                    <!-- Content -->
+                    {{ $slot }}
+                    <!-- / Content -->
+
+                    <!-- Footer -->
+                    <div class="p-3 text-center">
+                        <small>&copy; Copyright {{ date('Y') }}</small>
+                    </div>
+                    <div class="content-backdrop fade"></div>
+                </div>
+                <!-- Content wrapper -->
+            </div>
+            <!-- / Layout page -->
+        </div>
+
+        <!-- Overlay -->
+        <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+@endsection
