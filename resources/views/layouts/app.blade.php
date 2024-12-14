@@ -16,6 +16,10 @@
         .flex-content {
             flex: 1;
         }
+
+        .container {
+            padding: 2rem 10rem !important;
+        }
     </style>
 @endpush
 
