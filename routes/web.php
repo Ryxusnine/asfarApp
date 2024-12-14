@@ -3,12 +3,12 @@
 use App\Http\Middleware\CheckUserRole;
 use Illuminate\Support\Facades\Route;
 
-Route::redirect('/', '/dashboard');
+Route::redirect('/', '/beranda');
 Route::view('test', 'test');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware([CheckUserRole::class.':admin'])->group(function () {
-        Route::view('dashboard', 'dashboard')->name('dashboard');
+        Route::view('beranda', 'dashboard')->name('dashboard');
     });
 
     Route::view('profile', 'profile')->name('profile');

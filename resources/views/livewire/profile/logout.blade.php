@@ -25,6 +25,7 @@ new class extends Component {
         <button
             class="btn btn-danger"
             wire:click="logout"
+            wire:loading.attr="disabled"
         >{{ __('Logout') }}</button>
     </div>
 </div>

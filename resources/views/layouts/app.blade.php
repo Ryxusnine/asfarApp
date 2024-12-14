@@ -54,7 +54,7 @@
                         class="nav-item nav-link @if (Route::is('dashboard')) bg-success rounded-pill text-white @endif mx-3 px-3"
                         href="{{ route('dashboard') }}"
                     >
-                        Dashboard
+                        Beranda
                     </a>
 
                     <a
@@ -68,7 +68,7 @@
                         class="nav-item nav-link @if (Route::is('profile')) bg-success rounded-pill text-white @endif mx-3 px-3"
                         href="{{ route('profile') }}"
                     >
-                        Profile
+                        Profil
                     </a>
                 </div>
             </div>

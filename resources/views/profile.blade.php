@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-slot name="title">Profile</x-slot>
+    <x-slot name="title">Profil</x-slot>
 
     <div class="container p-5">
         <div class="row">

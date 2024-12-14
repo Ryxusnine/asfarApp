@@ -4,7 +4,7 @@
     <div class="container p-5">
         <div class="card">
             <div class="card-body">
-                <h5 class="text-primary">Tentang Kami</h5>
+                <h5><b>Tentang Kami</b></h5>
 
                 <p>Selamat datang di website resmi Muhammad Asfari Asfar!</p>
 
