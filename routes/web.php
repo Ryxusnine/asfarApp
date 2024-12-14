@@ -12,6 +12,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     Route::view('profile', 'profile')->name('profile');
+    Route::view('tentang-kami', 'about')->name('about');
+
     Route::view('kuesioner/umkm', 'test')->name('kuesioner.umkm.index');
 });
 

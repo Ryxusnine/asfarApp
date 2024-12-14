@@ -58,6 +58,13 @@
                     </a>
 
                     <a
+                        class="nav-item nav-link @if (Route::is('about')) bg-success rounded-pill text-white @endif mx-3 px-3"
+                        href="{{ route('about') }}"
+                    >
+                        Tentang Kami
+                    </a>
+
+                    <a
                         class="nav-item nav-link @if (Route::is('profile')) bg-success rounded-pill text-white @endif mx-3 px-3"
                         href="{{ route('profile') }}"
                     >
