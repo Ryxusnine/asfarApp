@@ -7,10 +7,20 @@
         href="{{ asset('templates/sneat/vendor/css/pages/page-auth.css') }}"
         rel="stylesheet"
     />
+    <style>
+        .flex-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flex-content {
+            flex: 1;
+        }
+    </style>
 @endpush
 
 @section('content')
-    <nav class="navbar navbar-example navbar-expand-lg navbar-light bg-white p-3 shadow-sm">
+    <nav class="navbar navbar-example navbar-expand-lg navbar-light sticky-top bg-white p-3 shadow-sm">
         <div class="container-fluid">
             <div class="app-brand demo">
                 <a
@@ -75,8 +85,8 @@
         </div>
     </nav>
 
-    <div class="layout-wrapper layout-content-navbar layout-without-menu">
-        <div class="layout-container">
+    <div class="layout-wrapper layout-content-navbar layout-without-menu flex-wrapper">
+        <div class="layout-container flex-content">
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Content wrapper -->
@@ -84,16 +94,15 @@
                     <!-- Content -->
                     {{ $slot }}
                     <!-- / Content -->
-
-                    <!-- Footer -->
-                    <div class="p-3 text-center">
-                        <small>&copy; Copyright {{ date('Y') }}</small>
-                    </div>
-                    <div class="content-backdrop fade"></div>
                 </div>
                 <!-- Content wrapper -->
             </div>
             <!-- / Layout page -->
+        </div>
+
+        <!-- Footer -->
+        <div class="p-3 text-center">
+            <small>&copy; Copyright {{ date('Y') }}</small>
         </div>
 
         <!-- Overlay -->
