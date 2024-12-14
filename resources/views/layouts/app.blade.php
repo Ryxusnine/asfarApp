@@ -72,6 +72,13 @@
                     </a>
 
                     <a
+                        class="nav-item nav-link @if (Route::is('questionnaire.index')) bg-success rounded-pill text-white @endif mx-3 px-3"
+                        href="{{ route('questionnaire.index') }}"
+                    >
+                        Kuisioner
+                    </a>
+
+                    <a
                         class="nav-item nav-link @if (Route::is('about')) bg-success rounded-pill text-white @endif mx-3 px-3"
                         href="{{ route('about') }}"
                     >
