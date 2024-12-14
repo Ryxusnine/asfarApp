@@ -6,8 +6,7 @@ use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
 use Livewire\Volt\Component;
 
-new class extends Component
-{
+new class extends Component {
     public string $current_password = '';
     public string $password = '';
     public string $password_confirmation = '';
@@ -38,42 +37,102 @@ new class extends Component
     }
 }; ?>
 
-<section>
-    <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Update Password') }}
-        </h2>
+<div class="card mb-5">
+    <div class="card-header">
+        <h5 class="mb-1"><b>{{ __('Update Password') }}</b></h5>
+        {{ __('Ensure your account is using a long, random password to stay secure.') }}
+    </div>
 
-        <p class="mt-1 text-sm text-gray-600">
-            {{ __('Ensure your account is using a long, random password to stay secure.') }}
-        </p>
-    </header>
+    <form wire:submit="updatePassword">
+        <div class="card-body">
+            <div class="form-password-toggle mb-5">
+                <label
+                    class="form-label"
+                    for="update_password_current_password"
+                >{{ __('Current Password') }}</label>
 
-    <form wire:submit="updatePassword" class="mt-6 space-y-6">
-        <div>
-            <x-input-label for="update_password_current_password" :value="__('Current Password')" />
-            <x-text-input wire:model="current_password" id="update_password_current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
-            <x-input-error :messages="$errors->get('current_password')" class="mt-2" />
+                <div class="input-group input-group-merge">
+                    <input
+                        class="form-control @error('current_password') is-invalid @enderror"
+                        id="update_password_current_password"
+                        name="current_password"
+                        type="password"
+                        aria-describedby="current_password"
+                        wire:model="current_password"
+                        required
+                        autocomplete="current-password"
+                        placeholder="masukkan kata sandi sekarang..."
+                    />
+                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                    @error('current_password')
+                        <div class="invalid-feedback"> {{ $message }} </div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-password-toggle mb-5">
+                <label
+                    class="form-label"
+                    for="update_password_password"
+                >{{ __('New Password') }}</label>
+
+                <div class="input-group input-group-merge">
+                    <input
+                        class="form-control @error('password') is-invalid @enderror"
+                        id="update_password_password"
+                        name="password"
+                        type="password"
+                        aria-describedby="password"
+                        wire:model="password"
+                        required
+                        autocomplete="new-password"
+                        placeholder="masukkan kata sandi baru..."
+                    />
+                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                    @error('password')
+                        <div class="invalid-feedback"> {{ $message }} </div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-password-toggle mb-5">
+                <label
+                    class="form-label"
+                    for="update_password_password_confirmation"
+                >{{ __('New Password') }}</label>
+
+                <div class="input-group input-group-merge">
+                    <input
+                        class="form-control @error('password_confirmation') is-invalid @enderror"
+                        id="update_password_password_confirmation"
+                        name="password_confirmation"
+                        type="password"
+                        aria-describedby="password"
+                        wire:model="password_confirmation"
+                        required
+                        autocomplete="new-password"
+                        placeholder="masukkan konfirmasi kata sandi baru..."
+                    />
+                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                    @error('password_confirmation')
+                        <div class="invalid-feedback"> {{ $message }} </div>
+                    @enderror
+                </div>
+            </div>
         </div>
 
-        <div>
-            <x-input-label for="update_password_password" :value="__('New Password')" />
-            <x-text-input wire:model="password" id="update_password_password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+        <div class="card-footer d-flex align-items-center">
+            <button
+                class="btn btn-primary"
+                type="submit"
+            >{{ __('Save') }}</button>
 
-        <div>
-            <x-input-label for="update_password_password_confirmation" :value="__('Confirm Password')" />
-            <x-text-input wire:model="password_confirmation" id="update_password_password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
-
-            <x-action-message class="me-3" on="password-updated">
+            <x-action-message
+                class="ms-3"
+                on="password-updated"
+            >
                 {{ __('Saved.') }}
             </x-action-message>
         </div>
     </form>
-</section>
+</div>
