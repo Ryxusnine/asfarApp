@@ -24,7 +24,7 @@
 
                             <a
                                 class="btn btn-primary"
-                                href="javascript:;"
+                                href="{{ route('questionnaire.index') }}"
                             >
                                 <i class="bx bx-book me-3"></i>
                                 Jawab Kuisioner
