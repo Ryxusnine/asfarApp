@@ -26,8 +26,10 @@ class Question extends Model
         return $this->belongsTo(Questionnaire::class);
     }
 
-    public function answers()
+    public function answer()
     {
-        return $this->hasMany(Answer::class);
+        return $this->hasOne(Answer::class)
+            ->where('user_id', auth()->user()->id)
+            ->withDefault();
     }
 }
