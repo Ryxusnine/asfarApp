@@ -9,8 +9,23 @@
 
     <x-alert />
 
+    @if ($this->isSubmitted)
+        <div
+            class="alert alert-dismissible border-info my-5 border bg-white"
+            role="alert"
+        >
+            <div class="d-flex">
+                <div>
+                    <h6 class="text-info mb-0">Kuesioner Telah Terjawab</h6>
+                    <p class="mb-0">Anda telah menjawab kuisioner ini. Terima kasih atas partisipasinya.</p>
+                </div>
+            </div>
+        </div>
+    @endif
+
     <form
         class="card mt-5"
+        id="questionnaire-form"
         wire:submit.prevent="save"
     >
         <div class="card-header">
@@ -76,6 +91,12 @@
                                             </label>
                                         </div>
                                     @endforeach
+
+                                    @error("answers.{$question->id}")
+                                        <div class="invalid-feedback d-block">
+                                            Pilih salah satu jawaban.
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -91,4 +112,14 @@
             >Simpan Jawaban</button>
         </div>
     </form>
+
+    @if ($this->isSubmitted)
+        <script defer>
+            let form = document.getElementById("questionnaire-form");
+            let elements = form.elements;
+            for (let i = 0, len = elements.length; i < len; ++i) {
+                elements[i].disabled = true;
+            }
+        </script>
+    @endif
 </div>

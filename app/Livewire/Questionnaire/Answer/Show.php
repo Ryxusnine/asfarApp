@@ -15,6 +15,12 @@ class Show extends Component
 
     public $answers = [];
 
+    public $isSubmitted = false;
+
+    public $rules = [
+        'answers.*' => 'required',
+    ];
+
     public function mount($id)
     {
         $this->questionnaire = Questionnaire::with('questions.answer')->findOrFail($id);
@@ -22,11 +28,17 @@ class Show extends Component
         foreach ($this->questionnaire->questions as $question) {
             $this->answers[$question->id] = $question->answer->answer ?? null;
         }
+
+        if (! in_array(null, array_values($this->answers))) {
+            $this->isSubmitted = true;
+        }
     }
 
     public function save()
     {
         DB::beginTransaction();
+
+        $this->validate();
 
         try {
             foreach ($this->answers as $questionId => $answer) {
