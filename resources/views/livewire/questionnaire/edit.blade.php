@@ -127,7 +127,10 @@
 
             <div class="card bg-lighter my-3 shadow-none">
                 @foreach ($pertanyaan as $key => $item)
-                    <div class="card-body {{ !$loop->last ? 'pb-0' : '' }}">
+                    <div
+                        class="card-body {{ !$loop->last ? 'pb-0' : '' }}"
+                        wire:key="question-{{ $key }}"
+                    >
                         <div class="card card-body bg-white shadow-none">
                             <div class="row">
                                 <div class="col-1">

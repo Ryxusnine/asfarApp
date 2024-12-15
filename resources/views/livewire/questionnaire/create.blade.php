@@ -13,6 +13,8 @@
         class="card mt-5"
         wire:submit.prevent="save"
     >
+        <h5 class="card-header">Tambah kuesioner</h5>
+
         <div class="card-body">
             <div class="mb-5">
                 <label
@@ -97,7 +99,17 @@
                     name="gambar"
                     type="file"
                     wire:model="gambar"
+                    accept="image/*"
                 />
+
+                @if ($gambar)
+                    <img
+                        class="img-thumbnail mt-3 w-20 rounded"
+                        src="{{ $gambar ? $gambar->temporaryUrl() : '' }}"
+                        alt="gambar"
+                    />
+                @endif
+
                 @error('gambar')
                     <div class="invalid-feedback"> {{ $message }} </div>
                 @enderror
@@ -113,7 +125,10 @@
 
             <div class="card bg-lighter my-3 shadow-none">
                 @foreach ($pertanyaan as $key => $item)
-                    <div class="card-body {{ !$loop->last ? 'pb-0' : '' }}">
+                    <div
+                        class="card-body {{ !$loop->last ? 'pb-0' : '' }}"
+                        wire:key="question-{{ $key }}"
+                    >
                         <div class="card card-body bg-white shadow-none">
                             <div class="row">
                                 <div class="col-1">
@@ -159,13 +174,27 @@
                                         </div>
 
                                         <template x-if="denganGambar">
-                                            <input
-                                                class="form-control @error('pertanyaan.{{ $key }}.gambar') is-invalid @enderror w-50"
-                                                id="pertanyaan.{{ $key }}.gambar"
-                                                name="pertanyaan.{{ $key }}.gambar"
-                                                type="file"
-                                                wire:model="pertanyaan.{{ $key }}.gambar"
-                                            />
+                                            <div><input
+                                                    class="form-control @error('pertanyaan.{{ $key }}.gambar') is-invalid @enderror w-50"
+                                                    id="pertanyaan.{{ $key }}.gambar"
+                                                    name="pertanyaan.{{ $key }}.gambar"
+                                                    type="file"
+                                                    wire:model="pertanyaan.{{ $key }}.gambar"
+                                                    accept="image/*"
+                                                />
+
+                                                @if ($pertanyaan[$key]['gambar'])
+                                                    <img
+                                                        class="img-thumbnail mt-3 w-20 rounded"
+                                                        src="{{ $pertanyaan[$key]['gambar']->temporaryUrl() }}"
+                                                        alt="gambar"
+                                                    />
+                                                @endif
+
+                                                @error('pertanyaan.{{ $key }}.gambar')
+                                                    <div class="invalid-feedback"> {{ $message }} </div>
+                                                @enderror
+                                            </div>
                                         </template>
                                     </div>
                                 </div>
