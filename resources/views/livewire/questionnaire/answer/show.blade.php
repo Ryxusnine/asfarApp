@@ -49,6 +49,14 @@
                                 <div>
                                     <h6>{{ $question->question }}</h6>
 
+                                    @if ($question->image)
+                                        <img
+                                            class="img-thumbnail w-50 my-5 rounded"
+                                            src="{{ asset('storage/' . $question->image) }}"
+                                            alt="{{ $question->question }}"
+                                        >
+                                    @endif
+
                                     @foreach (collect($question->options)->sortKeysDesc()->all() as $optionKey => $optionName)
                                         <div class="form-check">
                                             <input
