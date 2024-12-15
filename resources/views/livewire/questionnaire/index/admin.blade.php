@@ -2,7 +2,7 @@
     <div class="card mt-5">
         <h6 class="card-header">Daftar kuisioner</h6>
 
-        <div class="table-responsive text-nowrap">
+        <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
@@ -16,18 +16,18 @@
                 <tbody class="table-border-bottom-0">
                     @forelse ($questionnaires as $questionnaire)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>
+                            <td class="align-top">{{ $loop->iteration }}</td>
+                            <td class="align-top">
                                 <b>{{ $questionnaire->shop_name }}</b>
                                 <br>
                                 <small class="text-muted">{{ $questionnaire->address }}</small>
                             </td>
-                            <td>
+                            <td class="align-top">
                                 <b>{{ $questionnaire->title }}</b>
                                 <br>
                                 <small class="text-muted">{{ $questionnaire->description }}</small>
                             </td>
-                            <td>
+                            <td class="align-top">
                                 <div class="dropdown">
                                     <button
                                         class="btn dropdown-toggle hide-arrow p-0"
