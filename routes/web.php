@@ -13,13 +13,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('profil', 'profile')->name('profile');
 
     Route::get('kuisioner', Questionnaire\Index::class)->name('questionnaire.index');
-    Route::get('kuisioner/{questionnaire}/jawab', Questionnaire\Answer\Show::class)->name('questionnaire.answer.show');
+    Route::get('kuisioner/{id}/jawab', Questionnaire\Answer\Show::class)->name('questionnaire.answer.show');
 
     // ADMIN
     Route::middleware([CheckUserRole::class.':admin'])->group(function () {
         Route::prefix('kuisioner')->name('questionnaire.')->group(function () {
             Route::get('tambah', Questionnaire\Create::class)->name('create');
-            Route::get('{questionnaire}/sunting', Questionnaire\Edit::class)->name('edit');
+            Route::get('{id}/sunting', Questionnaire\Edit::class)->name('edit');
         });
     });
 });
