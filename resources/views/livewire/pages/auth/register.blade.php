@@ -32,8 +32,7 @@ new #[Layout('layouts.auth')] #[Title('Register')] class extends Component {
 
         Auth::login($user);
 
-        $route = auth()->user()->role == 'admin' ? 'dashboard' : 'kuesioner.umkm.index';
-        $this->redirectIntended(default: route($route), navigate: true);
+        $this->redirectIntended(default: route('dashboard'), navigate: true);
     }
 }; ?>
 

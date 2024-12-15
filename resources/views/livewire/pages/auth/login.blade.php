@@ -20,8 +20,7 @@ new #[Layout('layouts.auth')] #[Title('Login')] class extends Component {
 
         Session::regenerate();
 
-        $route = auth()->user()->role == 'admin' ? 'dashboard' : 'kuesioner.umkm.index';
-        $this->redirectIntended(default: route($route), navigate: true);
+        $this->redirectIntended(default: route('dashboard'), navigate: true);
     }
 }; ?>
 
