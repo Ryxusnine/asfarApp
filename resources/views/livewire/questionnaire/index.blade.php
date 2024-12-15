@@ -12,8 +12,8 @@
     <x-alert />
 
     @if (auth()->user()->role == 'admin')
-        <livewire:questionnaire.index.admin />
+        <livewire:questionnaire.index.admin :questionnaires="$this->questionnaires" />
     @else
-        <livewire:questionnaire.index.user />
+        <livewire:questionnaire.index.user :questionnaires="$this->questionnaires" />
     @endif
 </div>
