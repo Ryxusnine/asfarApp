@@ -18,7 +18,7 @@ new #[Layout('layouts.auth')] #[Title('Register')] class extends Component {
     /**
      * Handle an incoming registration request.
      */
-    public function register(): void
+    public function register()
     {
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -32,7 +32,7 @@ new #[Layout('layouts.auth')] #[Title('Register')] class extends Component {
 
         Auth::login($user);
 
-        $this->redirectIntended(default: route('dashboard'), navigate: true);
+        return redirect()->intended(route('dashboard'));
     }
 }; ?>
 

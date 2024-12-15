@@ -12,7 +12,7 @@ new #[Layout('layouts.auth')] #[Title('Login')] class extends Component {
     /**
      * Handle an incoming authentication request.
      */
-    public function login(): void
+    public function login()
     {
         $this->validate();
 
@@ -20,7 +20,7 @@ new #[Layout('layouts.auth')] #[Title('Login')] class extends Component {
 
         Session::regenerate();
 
-        $this->redirectIntended(default: route('dashboard'), navigate: true);
+        return redirect()->intended(route('dashboard'));
     }
 }; ?>
 
