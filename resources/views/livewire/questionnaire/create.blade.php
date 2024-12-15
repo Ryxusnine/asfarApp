@@ -144,7 +144,7 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <textarea
-                                            class="form-control @error('pertanyaan.{{ $key }}.pertanyaan') is-invalid @enderror"
+                                            class="form-control @error("pertanyaan.$key.pertanyaan") is-invalid @enderror"
                                             id="pertanyaan.{{ $key }}.pertanyaan"
                                             name="pertanyaan.{{ $key }}.pertanyaan"
                                             type="text"
@@ -153,7 +153,7 @@
                                             rows="3"
                                         ></textarea>
 
-                                        @error('pertanyaan.{{ $key }}.pertanyaan')
+                                        @error("pertanyaan.$key.pertanyaan")
                                             <div class="invalid-feedback"> {{ $message }} </div>
                                         @enderror
                                     </div>
@@ -174,14 +174,19 @@
                                         </div>
 
                                         <template x-if="denganGambar">
-                                            <div><input
-                                                    class="form-control @error('pertanyaan.{{ $key }}.gambar') is-invalid @enderror w-50"
+                                            <div>
+                                                <input
+                                                    class="form-control @error("pertanyaan.$key.gambar") is-invalid @enderror w-50"
                                                     id="pertanyaan.{{ $key }}.gambar"
                                                     name="pertanyaan.{{ $key }}.gambar"
                                                     type="file"
                                                     wire:model="pertanyaan.{{ $key }}.gambar"
                                                     accept="image/*"
                                                 />
+
+                                                @error("pertanyaan.$key.gambar")
+                                                    <div class="invalid-feedback"> {{ $message }} </div>
+                                                @enderror
 
                                                 @if ($pertanyaan[$key]['gambar'])
                                                     <img
@@ -190,10 +195,6 @@
                                                         alt="gambar"
                                                     />
                                                 @endif
-
-                                                @error('pertanyaan.{{ $key }}.gambar')
-                                                    <div class="invalid-feedback"> {{ $message }} </div>
-                                                @enderror
                                             </div>
                                         </template>
                                     </div>

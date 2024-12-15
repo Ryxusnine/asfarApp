@@ -91,6 +91,18 @@ class Edit extends Component
 
     public function save()
     {
+        $this->pertanyaan = collect($this->pertanyaan)
+            ->map(function ($question) {
+                if (is_string($question['gambar'])) {
+                    $question['gambar'] = null;
+                }
+
+                return $question;
+            })
+            ->sortBy('urutan')
+            ->values()
+            ->toArray();
+
         $this->validate();
 
         DB::beginTransaction();
