@@ -9,8 +9,6 @@
 
     <x-alert />
 
-    {{ $errors }}
-
     <form
         class="card mt-5"
         wire:submit.prevent="save"
