@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\CheckUserRole;
+use App\Livewire\Dashboard;
 use App\Livewire\Questionnaire;
 use Illuminate\Support\Facades\Route;
 
@@ -8,7 +9,7 @@ Route::redirect('/', '/beranda');
 Route::view('test', 'test');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::view('beranda', 'dashboard')->name('dashboard');
+    Route::get('beranda', Dashboard\Index::class)->name('dashboard');
     Route::view('tentang-kami', 'about')->name('about');
     Route::view('profil', 'profile')->name('profile');
 

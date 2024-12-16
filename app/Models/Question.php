@@ -35,4 +35,9 @@ class Question extends Model
             ->where('user_id', auth()->user()->id)
             ->withDefault();
     }
+
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
 }
