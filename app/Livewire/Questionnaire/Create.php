@@ -60,7 +60,7 @@ class Create extends Component
         'gambar' => ['nullable', 'image', 'max:1024'],
 
         'pertanyaan' => ['required', 'array', 'min:1'],
-        'pertanyaan.*.urutan' => ['required', 'integer'],
+        'pertanyaan.*.urutan' => ['nullable', 'integer'],
         'pertanyaan.*.pertanyaan' => ['required'],
         'pertanyaan.*.gambar' => ['nullable', 'image', 'max:1024'],
     ];
@@ -80,7 +80,7 @@ class Create extends Component
                 'image' => $this->gambar ? $this->gambar->store('images/kuisioner', 'public') : null,
             ]);
 
-            foreach ($this->pertanyaan as $question) {
+            foreach ($this->pertanyaan as $key => $question) {
                 $questionnaire->questions()->create([
                     'question' => $question['pertanyaan'],
                     'question_type' => 'options',
@@ -92,7 +92,7 @@ class Create extends Component
                         1 => 'Sangat Tidak Suka',
                     ],
                     'image' => $question['gambar'] ? $question['gambar']->store('images/pertanyaan', 'public') : null,
-                    'order' => $question['urutan'],
+                    'order' => $question['urutan'] ?? $key + 1,
                 ]);
             }
 
