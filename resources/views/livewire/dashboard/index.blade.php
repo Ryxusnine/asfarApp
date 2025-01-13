@@ -43,9 +43,7 @@
             </div>
         </div>
 
-        @if (auth()->user()->role == 'admin')
-            <livewire:dashboard.admin lazy />
-        @endif
+        <livewire:dashboard.admin lazy />
     </div>
 
     @push('scripts.page')
